@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kotlinapi</string>
+    <string name="menu_list_title">List</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_add_repo">Add Repo</string>
+    <string name="menu_un_favorite">Un Favorite</string>
+    <string name="menu_search_repos">Search Repos</string>
+</resources>
