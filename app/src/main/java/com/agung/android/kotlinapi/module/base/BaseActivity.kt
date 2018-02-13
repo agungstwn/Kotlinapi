@@ -14,7 +14,7 @@ import javax.inject.Inject
 /**
  * Created by agung on 05/02/18.
  */
-abstract class baseActivity : AppCompatActivity(), HasSupportFragmentInjector {
+abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     @Inject
     lateinit var dispatchingInjector: DispatchingAndroidInjector<Fragment>
 

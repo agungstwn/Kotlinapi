@@ -12,7 +12,7 @@ import javax.inject.Inject
 /**
  * Created by agung on 07/02/18.
  */
-abstract class baseFragment : Fragment(), HasSupportFragmentInjector {
+abstract class BaseFragment : Fragment(), HasSupportFragmentInjector {
 
     @Inject lateinit var dispatchingInjector: DispatchingAndroidInjector<Fragment>
 
@@ -29,6 +29,6 @@ abstract class baseFragment : Fragment(), HasSupportFragmentInjector {
     }
 
     protected fun setActionBarTitle(title: String){
-        (activity as baseActivity).setActionBarTitle(title)
+        (activity as BaseActivity).setActionBarTitle(title)
     }
 }
