@@ -2,6 +2,7 @@ package com.agung.android.kotlinapi.data.database
 
 import android.content.Context
 import com.agung.android.kotlinapi.data.model.RepoResponse
+import com.agung.android.kotlinapi.utils.extensions.emptyRepo
 import io.realm.BuildConfig
 import io.realm.Realm
 import io.realm.RealmConfiguration
@@ -75,4 +76,31 @@ object RealmDb {
         return repoList
     }
 
+    @JvmStatic
+    fun getFavorites(): MutableList<RepoResponse> {
+        var repoList: MutableList<RepoResponse> = mutableListOf()
+        Realm.getDefaultInstance().use { realm ->
+            val realmRepoList= realm
+                    .where(RepoResponse::class.java)
+                    .equalTo(RepoResponse.REPO_IS_FAVORITE, true)
+                    .findAll()
+            repoList = realm.copyFromRealm(realmRepoList)
+            repoList.sortByDescending { repoResponse : RepoResponse -> repoResponse?.id  }
+        }
+        return repoList
+    }
+
+    @JvmStatic
+fun getRepository(repoName: String): RepoResponse{
+        var repoResponse: RepoResponse = emptyRepo()
+        Realm.getDefaultInstance().use { realm ->
+            val realmRepoResponse = realm.where(RepoResponse::class.java)
+                    .equalTo(RepoResponse.REPO_NAME, repoName)
+                    .findFirst()
+            if (realmRepoResponse != null){
+                repoResponse = realm.copyFromRealm(realmRepoResponse)
+            }
+        }
+        return repoResponse
+    }
 }

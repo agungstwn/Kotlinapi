@@ -47,6 +47,6 @@ open class RepoResponse(
     companion object {
             val REPO_ID: String = "id"
             val REPO_NAME: String = "name"
-            val REPO_IS_FAVORITE = "favorite"
+            val REPO_IS_FAVORITE: String = "favorite"
     }
 }
